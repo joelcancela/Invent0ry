@@ -1,0 +1,46 @@
+﻿<Window x:Class="Invent0ry.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Invent0ry"
+        mc:Ignorable="d"
+        Title="Invent0ry" Height="530" Width="800" Loaded="Window_Loaded" Icon="icon.ico">
+    <Grid>
+        <DataGrid x:Name="inventoryGrid" HorizontalAlignment="Left" Height="419"
+                  VerticalAlignment="Top" AutoGenerateColumns="False" ColumnWidth="SizeToHeader" CanUserResizeRows="False" Width="635" Margin="10,70,0,0" MouseDoubleClick="inventoryGrid_MouseDoubleClick" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Name"
+                                    IsReadOnly="True" SortDirection="Ascending" MinWidth="250" />
+                <DataGridTextColumn Binding="{Binding Quantity}" ClipboardContentBinding="{x:Null}" Header="Quantity"
+                                    IsReadOnly="True" CanUserResize="False" />
+                <DataGridTextColumn Binding="{Binding Available}" ClipboardContentBinding="{x:Null}" Header="Available"
+                                    IsReadOnly="True" CanUserResize="False" />
+                <DataGridTextColumn Binding="{Binding Location}" ClipboardContentBinding="{x:Null}" Header="Location"
+                                    IsReadOnly="True" Width="SizeToHeader" />
+                <DataGridTemplateColumn Header="Categories" Width="SizeToHeader" CanUserResize="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding Categories}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Loans" Width="Auto" CanUserResize="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding Loans}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="SaveButton" Content="Save changes" HorizontalAlignment="Left" Margin="670,70,0,0" VerticalAlignment="Top" Width="75" Click="SaveButton_Click" Background="#FF1FFF08"/>
+        <Label x:Name="ChangesSavedLabel" Content="Changes saved" HorizontalAlignment="Left" Margin="670,20,0,0" VerticalAlignment="Top" Width="100" Foreground="Red" Visibility="Hidden"/>
+        <Button x:Name="EditItem" Content="Edit item" HorizontalAlignment="Left" Margin="670,170,0,0" VerticalAlignment="Top" Width="75" Click="EditItem_Click"/>
+        <TextBox x:Name="FilterTextBox" HorizontalAlignment="Left" Height="22" Margin="10,20,0,0" TextWrapping="Wrap" Text="Filter items..." VerticalAlignment="Top" Width="635" Foreground="DimGray" GotFocus="FilterTextBox_GotFocus" LostFocus="FilterTextBox_LostFocus" TextChanged="FilterTextBox_TextChanged"/>
+        <Button x:Name="MemosButton" Content="Show Memos" HorizontalAlignment="Left" Margin="670,120,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="MemosButton_Click"/>
+        <Button x:Name="AddItemButton" Content="Add item" HorizontalAlignment="Left" Margin="670,220,0,0" VerticalAlignment="Top" Width="75" Click="AddItemButton_Click"/>
+        <Button x:Name="RemoveItemButton" Content="Remove item(s)" HorizontalAlignment="Left" Margin="665,270,0,0" VerticalAlignment="Top" Width="85" Click="RemoveItemButton_Click"/>
+
+    </Grid>
+</Window>
