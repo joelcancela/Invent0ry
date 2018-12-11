@@ -55,7 +55,8 @@ namespace Invent0ry.Forms
             }
 
             Item.Location = LocationTextBox.Text;
-            Item.Loans = LoansTextBox.Text.Split(new[] {Environment.NewLine}, StringSplitOptions.None).ToList();
+            if (!String.IsNullOrEmpty(LoansTextBox.Text))
+                Item.Loans = LoansTextBox.Text.Split(new[] {Environment.NewLine}, StringSplitOptions.None).ToList();
             DialogResult = true;
         }
 
