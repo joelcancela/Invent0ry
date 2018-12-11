@@ -20,7 +20,7 @@ namespace Invent0ry.Forms
     /// </summary>
     public partial class EditItemForm : Window
     {
-        private string categoriesSeparator = ", ";
+        private string categoriesSeparator = ",";
         public Item Item { get; }
 
         private EditItemForm()
@@ -42,20 +42,10 @@ namespace Invent0ry.Forms
         {
             Item.Name = NameTextBox.Text;
             Item.Quantity = int.Parse(QuantityTextBox.Text);
-            List<string> itemCategories = CategoriesTextBox.Text
-                .Split(new[] {categoriesSeparator}, StringSplitOptions.None).ToList();
-            Item.Categories = new List<Category>();
-            foreach (string category in itemCategories)
-            {
-                Category categoryEnum;
-                if (Category.TryParse(category, out categoryEnum))
-                {
-                    Item.Categories.Add(categoryEnum);
-                }
-            }
-
+            if (!string.IsNullOrEmpty(CategoriesTextBox.Text))
+                Item.Categories = CategoriesTextBox.Text.Split(new[] {categoriesSeparator}, StringSplitOptions.None).ToList();
             Item.Location = LocationTextBox.Text;
-            if (!String.IsNullOrEmpty(LoansTextBox.Text))
+            if (!string.IsNullOrEmpty(LoansTextBox.Text))
                 Item.Loans = LoansTextBox.Text.Split(new[] {Environment.NewLine}, StringSplitOptions.None).ToList();
             DialogResult = true;
         }

@@ -9,11 +9,11 @@
     <Grid>
         <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="647,348,0,0" VerticalAlignment="Top" Width="104" Height="34" Click="OKButton_Click"/>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="502,348,0,0" VerticalAlignment="Top" Width="104" Height="34" Click="CancelButton_Click"/>
-        <Label x:Name="NameLabel" Content="Name" HorizontalAlignment="Left" Margin="135,70,0,0" VerticalAlignment="Top" Width="60"/>
-        <Label x:Name="QuantityLabel" Content="Quantity" HorizontalAlignment="Left" Margin="135,107,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="CategoriesLabel" Content="Categories" HorizontalAlignment="Left" Margin="135,144,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="LocationLabel" Content="Location" HorizontalAlignment="Left" Margin="135,185,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,0.231"/>
-        <Label x:Name="LoansLabel" Content="Loans" HorizontalAlignment="Left" Margin="135,222,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="NameLabel" Content="Name" HorizontalAlignment="Left" Margin="91,74,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label x:Name="QuantityLabel" Content="Quantity" HorizontalAlignment="Left" Margin="91,107,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="CategoriesLabel" Content="Categories&#xD;&#xA;(Separated by a coma)" HorizontalAlignment="Left" Margin="91,138,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LocationLabel" Content="Location" HorizontalAlignment="Left" Margin="91,185,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,0.231"/>
+        <Label x:Name="LoansLabel" Content="Loans&#xD;&#xA;(One per line)" HorizontalAlignment="Left" Margin="91,234,0,0" VerticalAlignment="Top" Height="50" Width="91" RenderTransformOrigin="0.736,0.58"/>
         <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="220,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="531"/>
         <TextBox x:Name="QuantityTextBox" HorizontalAlignment="Left" Height="23" Margin="600,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
         <TextBox x:Name="CategoriesTextBox" HorizontalAlignment="Left" Height="23" Margin="220,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="531"/>

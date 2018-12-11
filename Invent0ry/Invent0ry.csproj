@@ -89,7 +89,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Inventory.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Persistence\InventoryManager.cs" />

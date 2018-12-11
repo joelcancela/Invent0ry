@@ -12,7 +12,7 @@ namespace Invent0ry.Model
     {
         public string Name { get; set; }
         public int Quantity { get; set; }
-        public List<Category> Categories { get; set; }
+        public List<string> Categories { get; set; }
         public string Location { get; set; }
         public List<string> Loans { get; set; }
 
@@ -27,7 +27,7 @@ namespace Invent0ry.Model
 
         public Item()
         {
-            Categories = new List<Category>();
+            Categories = new List<string>();
             Loans = new List<string>();
         }
     }
