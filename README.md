@@ -19,6 +19,6 @@ Just a simple app to help me list stuff like wires
 
 ## Notes
 
-The item list is saved in your ``Documents\SkyNetLabs\invent0ry`` as ``inventory.json``.
+The item list is saved in this path by default: ``Documents\SkyNetLabs\invent0ry`` as ``inventory.json``. This path can be changed.
 
 If you want to put memo pictures you have to put them in the same directory, all main extensions are supported (.png, .jpg, etc.)
