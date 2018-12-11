@@ -45,6 +45,8 @@ namespace Invent0ry
 
         private void SetItemsSource()
         {
+            inventoryGrid.ItemsSource = null;
+            inventoryGrid.Items.Clear();
             inventoryGrid.ItemsSource = _inventory.Items;
             inventoryGrid.Items.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
         }
@@ -122,8 +124,6 @@ namespace Invent0ry
 
             if (FilterTextBox.Text == "")
             {
-                inventoryGrid.ItemsSource = null;
-                inventoryGrid.Items.Clear();
                 SetItemsSource();
             }
         }
