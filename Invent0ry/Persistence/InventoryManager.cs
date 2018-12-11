@@ -14,8 +14,22 @@ namespace Invent0ry.Persistence
 {
     class InventoryManager
     {
-        private static readonly string DataPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SkyNetLabs\\invent0ry";
-        private static readonly string Path = DataPath + "\\inventory.json";
+        public static string DataPath;
+        public static string Path;
+
+        static InventoryManager()
+        {
+            if (string.IsNullOrEmpty(Properties.Settings.Default.SettingsLocation))
+            {
+                DataPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SkyNetLabs\\invent0ry";
+            }
+            else
+            {
+                DataPath = Properties.Settings.Default.SettingsLocation;
+            }
+
+            Path = DataPath + "\\inventory.json";
+        }
 
         public static void SerializeInventory(Inventory inventory)
         {
@@ -63,6 +77,12 @@ namespace Invent0ry.Persistence
             }
 
             return filesFound;
+        }
+
+        public static void UpdatePaths()
+        {
+            DataPath = Properties.Settings.Default.SettingsLocation;
+            Path = DataPath + "\\inventory.json";
         }
     }
 }

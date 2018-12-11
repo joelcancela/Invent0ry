@@ -167,5 +167,18 @@ namespace Invent0ry
         {
             EditItem_Click(null,null);
         }
+
+        private void ChangeSavePathButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (var folderDialog = new FolderBrowserDialog())
+            {
+                if (folderDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    Properties.Settings.Default.SettingsLocation = folderDialog.SelectedPath;
+                    Properties.Settings.Default.Save();
+                    InventoryManager.UpdatePaths();
+                }
+            }
+        }
     }
 }

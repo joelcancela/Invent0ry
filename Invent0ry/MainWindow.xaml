@@ -41,6 +41,7 @@
         <Button x:Name="MemosButton" Content="Show Memos" HorizontalAlignment="Left" Margin="670,120,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="MemosButton_Click"/>
         <Button x:Name="AddItemButton" Content="Add item" HorizontalAlignment="Left" Margin="670,220,0,0" VerticalAlignment="Top" Width="75" Click="AddItemButton_Click"/>
         <Button x:Name="RemoveItemButton" Content="Remove item(s)" HorizontalAlignment="Left" Margin="665,270,0,0" VerticalAlignment="Top" Width="85" Click="RemoveItemButton_Click"/>
+        <Button x:Name="ChangeSavePathButton" Content="Change save path" HorizontalAlignment="Left" Margin="660,320,0,0" VerticalAlignment="Top" Width="100" Click="ChangeSavePathButton_Click"/>
 
     </Grid>
 </Window>
