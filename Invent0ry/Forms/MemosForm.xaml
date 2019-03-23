@@ -9,6 +9,7 @@
     <Grid>
         <Grid HorizontalAlignment="Left" Height="505" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
             <Image x:Name="image" HorizontalAlignment="Center"  VerticalAlignment="Center" Stretch="Uniform"/>
+            <TextBlock x:Name="text_no_memo" HorizontalAlignment="Left" Margin="337,252,0,0" TextWrapping="Wrap" Text="Sorry but no memo found" VerticalAlignment="Top" Visibility="Hidden"/>
         </Grid>
         <Button x:Name="nextButton" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="647,530,0,0" VerticalAlignment="Top" Width="75" Height="29" Click="nextButton_Click"/>
         <Button x:Name="previousButton" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="70,530,0,0" VerticalAlignment="Top" Width="75" Height="29" Click="previousButton_Click"/>
