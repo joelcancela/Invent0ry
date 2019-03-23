@@ -31,21 +31,35 @@ namespace Invent0ry.Forms
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            image.Source = new BitmapImage(new Uri(picturesPathsList[currentIndex]));
+            if (picturesPathsList.Count > 0)
+            {
+                image.Source = new BitmapImage(new Uri(picturesPathsList[currentIndex]));
+            } else
+            {
+                image.Visibility = Visibility.Hidden;
+                text_no_memo.Visibility = Visibility.Visible;
+            }
+            
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            currentIndex++;
-            if (currentIndex == picturesPathsList.Count) currentIndex = 0;
-            image.Source = new BitmapImage(new Uri(picturesPathsList[currentIndex]));
+            if (picturesPathsList.Count > 0)
+            {
+                currentIndex++;
+                if (currentIndex == picturesPathsList.Count) currentIndex = 0;
+                image.Source = new BitmapImage(new Uri(picturesPathsList[currentIndex]));
+            }
         }
 
         private void previousButton_Click(object sender, RoutedEventArgs e)
         {
-            currentIndex--;
-            if (currentIndex == -1) currentIndex = picturesPathsList.Count - 1;
-            image.Source = new BitmapImage(new Uri(picturesPathsList[currentIndex]));
+            if (picturesPathsList.Count > 0)
+            {
+                currentIndex--;
+                if (currentIndex == -1) currentIndex = picturesPathsList.Count - 1;
+                image.Source = new BitmapImage(new Uri(picturesPathsList[currentIndex]));
+            }
         }
     }
 }
