@@ -19,9 +19,13 @@ namespace Invent0ry.Model
         [JsonIgnore]
         public int Available => Quantity - Loans.Count;
 
-        public Item(string name, int quantity) : this()
+        public Item(string name, int quantity) : this(quantity)
         {
             Name = name;
+        }
+
+        public Item(int quantity) : this()
+        {
             Quantity = quantity;
         }
 

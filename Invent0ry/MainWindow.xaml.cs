@@ -153,7 +153,7 @@ namespace Invent0ry
 
         private void AddItemButton_Click(object sender, RoutedEventArgs e)
         {
-            EditItemForm dialog = new EditItemForm(new Item());
+            EditItemForm dialog = new EditItemForm(new Item(1));
             dialog.Title = "Add item";
             dialog.ShowDialog();
             if (dialog.DialogResult.HasValue && dialog.DialogResult.Value && !string.IsNullOrWhiteSpace(dialog.Item.Name))
