@@ -46,7 +46,12 @@ namespace Invent0ry.Forms
                 Item.Categories = CategoriesTextBox.Text.Split(new[] {categoriesSeparator}, StringSplitOptions.None).ToList();
             Item.Location = LocationTextBox.Text;
             if (!string.IsNullOrEmpty(LoansTextBox.Text))
-                Item.Loans = LoansTextBox.Text.Split(new[] {Environment.NewLine}, StringSplitOptions.None).ToList();
+            {
+                Item.Loans = LoansTextBox.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList();
+            } else
+            {
+                Item.Loans = new List<string>();
+            }
             DialogResult = true;
         }
 
