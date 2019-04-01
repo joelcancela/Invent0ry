@@ -47,7 +47,7 @@ namespace Invent0ry.Forms
             Item.Location = LocationTextBox.Text;
             if (!string.IsNullOrEmpty(LoansTextBox.Text))
             {
-                Item.Loans = LoansTextBox.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList();
+                Item.Loans = LoansTextBox.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None).Where(s => !string.IsNullOrWhiteSpace(s)).ToList();
             } else
             {
                 Item.Loans = new List<string>();
