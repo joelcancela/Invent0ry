@@ -8,7 +8,7 @@
         Title="Invent0ry" Height="530" Width="800" Loaded="Window_Loaded" Icon="icon.ico">
     <Grid>
         <DataGrid x:Name="inventoryGrid" HorizontalAlignment="Left" Height="419"
-                  VerticalAlignment="Top" AutoGenerateColumns="False" ColumnWidth="SizeToHeader" CanUserResizeRows="False" Width="635" Margin="10,70,0,0" MouseDoubleClick="inventoryGrid_MouseDoubleClick" CanUserAddRows="False">
+                  VerticalAlignment="Top" AutoGenerateColumns="False" ColumnWidth="SizeToHeader" CanUserResizeRows="False" Width="635" Margin="10,70,0,0" MouseDoubleClick="inventoryGrid_MouseDoubleClick" CanUserAddRows="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Name"
                                     IsReadOnly="True" SortDirection="Ascending" MinWidth="250" />
