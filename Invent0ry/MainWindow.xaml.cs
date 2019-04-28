@@ -41,6 +41,7 @@ namespace Invent0ry
             _inventory = InventoryManager.DeserializeInventory();
             SetItemsSource();
             memosPaths = InventoryManager.GetMemosPaths();
+            FilterTextBox.Focus();
         }
 
         private void SetItemsSource()
@@ -66,6 +67,7 @@ namespace Invent0ry
                 _inventory.Items[index] = dialog.Item;
                 SetItemsSource();
             }
+            FilterTextBox.Focus();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -161,6 +163,7 @@ namespace Invent0ry
                 _inventory.Items.Add(dialog.Item);
                 SetItemsSource();
             }
+            FilterTextBox.Focus();
         }
 
         private void inventoryGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)

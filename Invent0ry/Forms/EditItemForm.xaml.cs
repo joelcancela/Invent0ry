@@ -62,6 +62,7 @@ namespace Invent0ry.Forms
             CategoriesTextBox.Text = string.Join(categoriesSeparator, Item.Categories);
             LocationTextBox.Text = Item.Location;
             LoansTextBox.Text = string.Join(Environment.NewLine, Item.Loans);
+            NameTextBox.Focus();
         }
     }
 }
