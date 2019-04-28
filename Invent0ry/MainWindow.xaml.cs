@@ -195,8 +195,16 @@ namespace Invent0ry
                     Properties.Settings.Default.Save();
                     InventoryManager.UpdatePaths();
                     InventoryManager.SerializeInventory(_inventory);
+                    ReloadInventory();
                 }
             }
+        }
+
+        private void ReloadInventory()
+        {
+            _inventory = InventoryManager.DeserializeInventory();
+            SetItemsSource();
+            memosPaths = InventoryManager.GetMemosPaths();
         }
     }
 }
