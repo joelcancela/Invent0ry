@@ -181,15 +181,6 @@ namespace Invent0ry
             {
                 if (folderDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    try
-                    {
-                        Directory.Delete(Properties.Settings.Default.SettingsLocation, true);
-                    }
-                    catch (Exception exception)
-                    {
-                        Console.WriteLine("Tried to delete the previous save folder " + exception.Message);
-                    }
-
                     Properties.Settings.Default.SettingsLocation =
                         folderDialog.SelectedPath + InventoryManager.PathSuffix;
                     Properties.Settings.Default.Save();
