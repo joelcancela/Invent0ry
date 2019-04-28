@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -67,6 +68,7 @@ namespace Invent0ry
                 _inventory.Items[index] = dialog.Item;
                 SetItemsSource();
             }
+
             FilterTextBox.Focus();
         }
 
@@ -158,17 +160,19 @@ namespace Invent0ry
             EditItemForm dialog = new EditItemForm(new Item(1));
             dialog.Title = "Add item";
             dialog.ShowDialog();
-            if (dialog.DialogResult.HasValue && dialog.DialogResult.Value && !string.IsNullOrWhiteSpace(dialog.Item.Name))
+            if (dialog.DialogResult.HasValue && dialog.DialogResult.Value &&
+                !string.IsNullOrWhiteSpace(dialog.Item.Name))
             {
                 _inventory.Items.Add(dialog.Item);
                 SetItemsSource();
             }
+
             FilterTextBox.Focus();
         }
 
         private void inventoryGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            EditItem_Click(null,null);
+            EditItem_Click(null, null);
         }
 
         private void ChangeSavePathButton_Click(object sender, RoutedEventArgs e)
@@ -177,9 +181,20 @@ namespace Invent0ry
             {
                 if (folderDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    Properties.Settings.Default.SettingsLocation = folderDialog.SelectedPath;
+                    try
+                    {
+                        Directory.Delete(Properties.Settings.Default.SettingsLocation, true);
+                    }
+                    catch (Exception exception)
+                    {
+                        Console.WriteLine("Tried to delete the previous save folder " + exception.Message);
+                    }
+
+                    Properties.Settings.Default.SettingsLocation =
+                        folderDialog.SelectedPath + InventoryManager.PathSuffix;
                     Properties.Settings.Default.Save();
                     InventoryManager.UpdatePaths();
+                    InventoryManager.SerializeInventory(_inventory);
                 }
             }
         }

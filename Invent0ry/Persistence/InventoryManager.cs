@@ -16,23 +16,27 @@ namespace Invent0ry.Persistence
     {
         public static string DataPath;
         public static string Path;
+        public static string PathSuffix = "\\SkyNetLabs";
 
         static InventoryManager()
         {
             if (string.IsNullOrEmpty(Properties.Settings.Default.SettingsLocation))
             {
-                DataPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SkyNetLabs\\invent0ry";
-            }
-            else
-            {
-                DataPath = Properties.Settings.Default.SettingsLocation;
+                Properties.Settings.Default.SettingsLocation =
+                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + PathSuffix;
+                Properties.Settings.Default.Save();
             }
 
-            Path = DataPath + "\\inventory.json";
+            UpdatePaths();
         }
 
         public static void SerializeInventory(Inventory inventory)
         {
+            if (!File.Exists(Path))
+            {
+                Directory.CreateDirectory(DataPath + "\\invent0ry");
+                File.Create(Path).Dispose();
+            }
             JsonSerializer jsonSerializer =
                 new JsonSerializer {ContractResolver = new CamelCasePropertyNamesContractResolver()};
             //Sets JSON keys to lowercase
@@ -46,7 +50,7 @@ namespace Invent0ry.Persistence
         {
             if (!File.Exists(Path))
             {
-                Directory.CreateDirectory(DataPath);
+                Directory.CreateDirectory(DataPath + "\\invent0ry");
                 File.Create(Path).Dispose();
                 JObject jRootObject = new JObject {{"inventory", new JArray()}};
                 System.IO.File.WriteAllText(Path, JsonConvert.SerializeObject(jRootObject));
@@ -82,7 +86,9 @@ namespace Invent0ry.Persistence
         public static void UpdatePaths()
         {
             DataPath = Properties.Settings.Default.SettingsLocation;
-            Path = DataPath + "\\inventory.json";
+            Path = DataPath + "\\invent0ry\\inventory.json";
+            Console.WriteLine(DataPath);
+            Console.WriteLine(Path);
         }
     }
 }
