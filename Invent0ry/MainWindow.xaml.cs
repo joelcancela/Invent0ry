@@ -67,6 +67,7 @@ namespace Invent0ry
                 int index = _inventory.Items.IndexOf(selectedItem);
                 _inventory.Items[index] = dialog.Item;
                 SetItemsSource();
+                FilterTextBox_TextChanged(null, null);
             }
 
             FilterTextBox.Focus();
@@ -90,7 +91,10 @@ namespace Invent0ry
 
         private void FilterTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            FilterTextBox.Text = "";
+            if (FilterTextBox.Text == "Filter items...")
+            {
+                FilterTextBox.Text = "";
+            }
             FilterTextBox.Foreground = Brushes.Black;
         }
 
@@ -165,6 +169,7 @@ namespace Invent0ry
             {
                 _inventory.Items.Add(dialog.Item);
                 SetItemsSource();
+                FilterTextBox_TextChanged(null, null);
             }
 
             FilterTextBox.Focus();
