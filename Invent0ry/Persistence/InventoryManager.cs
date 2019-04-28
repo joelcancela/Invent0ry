@@ -36,14 +36,14 @@ namespace Invent0ry.Persistence
             {
                 Directory.CreateDirectory(DataPath + "\\invent0ry");
                 File.Create(Path).Dispose();
-                JsonSerializer jsonSerializer =
-                    new JsonSerializer {ContractResolver = new CamelCasePropertyNamesContractResolver()};
-                //Sets JSON keys to lowercase
-                JObject jObjectRoot = new JObject();
-                JArray jArrayItems = JArray.FromObject(inventory.Items, jsonSerializer);
-                jObjectRoot.Add("inventory", jArrayItems);
-                System.IO.File.WriteAllText(Path, JsonConvert.SerializeObject(jObjectRoot));
             }
+            JsonSerializer jsonSerializer =
+                new JsonSerializer { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+            //Sets JSON keys to lowercase
+            JObject jObjectRoot = new JObject();
+            JArray jArrayItems = JArray.FromObject(inventory.Items, jsonSerializer);
+            jObjectRoot.Add("inventory", jArrayItems);
+            System.IO.File.WriteAllText(Path, JsonConvert.SerializeObject(jObjectRoot));
         }
 
         public static Inventory DeserializeInventory()
